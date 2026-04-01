@@ -1,0 +1,110 @@
+.current-weather {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow behind the main component */
+.current-weather::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.location-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.location-icon {
+  color: var(--accent-color);
+}
+
+.city-name {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.main-temp-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.temp-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature {
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
+}
+
+.condition-info {
+  margin-top: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.condition-text {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  background: linear-gradient(90deg, #fff, #a1a1aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.high-low {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.icon-display {
+  color: #fff;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+.weather-animate {
+  animation: bounceSlow 4s ease-in-out infinite;
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 480px) {
+  .current-weather {
+    padding: 1.5rem;
+  }
+  .temperature {
+    font-size: 4.5rem;
+  }
+  .city-name {
+    font-size: 1.5rem;
+  }
+}

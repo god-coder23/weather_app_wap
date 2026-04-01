@@ -1,0 +1,101 @@
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Background Animated Orbs */
+.dashboard-bg-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: floatOrb 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6; /* Blue */
+  top: -10%;
+  left: -10%;
+  animation-duration: 25s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #8b5cf6; /* Purple */
+  bottom: -5%;
+  right: -5%;
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: #0ea5e9; /* Light Blue */
+  top: 40%;
+  left: 60%;
+  animation-duration: 28s;
+  animation-delay: -10s;
+}
+
+.left-panel, .right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 2;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(100px, 50px) scale(1.1) rotate(120deg); }
+  66% { transform: translate(50px, 150px) scale(0.9) rotate(240deg); }
+  100% { transform: translate(-50px, 100px) scale(1.05) rotate(360deg); }
+}
+
+@media (max-width: 968px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;
+  }
+  .dashboard {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+}
